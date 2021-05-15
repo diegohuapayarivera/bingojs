@@ -6,7 +6,7 @@ const mongoose = require("mongoose");
       //la url que enviamos lo obtuvimos de nuestro cluster en mongodb atlas
       //Tambien agregamos algunos parametros para la funcionalidad de mongo
       const db = await mongoose.connect(
-        "mongodb+srv://diegohr:notepad1245@cluster0.a3scv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority",
+        "mongodb+srv://diegohr:notepad1245@cluster0.a3scv.mongodb.net/retoJose?retryWrites=true&w=majority",
         {
           useNewUrlParser: true,
           useUnifiedTopology: true,
