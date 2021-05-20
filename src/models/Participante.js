@@ -1,11 +1,11 @@
 const { Schema, model } = require("mongoose");
 
 const ParticipanteSchema = new Schema({
-  n: { type: "number", require: true },
-  nombre: { type: "string", require: true },
+  codigo: { type: "string", require: false },
+  nombre: { type: "string", require: false },
   referencia: { type: "string", require: false },
-  telefono: { type: "number", require: false },
-  estado: { type: "string", require: true },
+  telefono: { type: "string", require: false },
+  
 });
 
 module.exports = model("Participante", ParticipanteSchema);

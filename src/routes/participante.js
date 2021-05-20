@@ -36,19 +36,18 @@ router.post("/participante/add", async (req, res) => {
     });
   } else {
     const estado = "A";
-    const n = 1010;
-    /*console.log(cantidad, ' este es la cantidad ingresada')
+    const codigo = 1500;
+    console.log(cantidad, " este es la cantidad ingresada");
     for (let i = 0; i < cantidad; i++) {
       const newParticipante = new Participante({
+        codigo,
         nombre,
         telefono,
         referencia,
-        estado,
-        n,
       });
       await newParticipante.save();
-    }*/
-    obtenerId(n, grupo);
+    }
+    //obtenerId(n, grupo); 
     req.flash("success_msg", `Se registro ${nombre}`);
     res.redirect("/participante");
   }
