@@ -63,8 +63,8 @@ router.get("/sorteo", async (req, res) => {
 });
 
 router.post("/sorteo/:codigo", async (req, res) => {
-  const numeroAleatorio = Math.floor(Math.random() * (1250 - 1400)) + 1400;
-  const ganador = await Participante.findOne({ codigo: numeroAleatorio });
+  const numeroAleatorio = Math.floor(Math.random() * (1 - 162)) + 162;
+  const ganador = await Participante.findOne({ id: numeroAleatorio });
   console.log(ganador);
   const codigo = req.params.codigo;
   console.log(codigo);
@@ -72,10 +72,10 @@ router.post("/sorteo/:codigo", async (req, res) => {
     nombre: ganador.nombre,
     numerorifa: ganador.codigo,
     codigo: codigo,
-  };
+  }; 
   const premios = await Premio.find({ codigo: codigo });
   console.log(premios);
   res.render("ganador", { publicar, premios });
-});
-  
+});   
+      
 module.exports = router;
