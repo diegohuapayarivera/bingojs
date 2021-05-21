@@ -1,0 +1,17 @@
+<div class="p-5 mt-3 mb-4 bg-dark text-white rounded-3">
+  <div class="container-fluid py-5">
+    <h1 class="display-5 fw-bold">Felicipades {{publicar.nombre}}</h1>
+    <p class="col-md-10 fs-4">
+      Tuviste la suerte de ganar el premio
+      {{publicar.codigo}}º con el numero de rifa
+      {{publicar.numerorifa}}, tus premios son estos
+    </p>
+    <ul>
+      {{#each premios}}
+        <li>{{premiouno}}</li>
+        <li>{{premiodos}}</li>
+      {{/each}}
+    </ul>
+    <a href="/sorteo" class="btn btn-outline-light w-100">Volver</a>
+  </div>
+</div>

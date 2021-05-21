@@ -1,3 +1,11 @@
-.imagen{
-    height: 230px;
+.imagen {
+  height: 230px;
+}
+a:hover {
+  color: black;
+}
+.scroll_div{
+    height: 60%;
+    width: 60%;
+    overflow-y: scroll;
 }

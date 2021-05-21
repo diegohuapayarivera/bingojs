@@ -38,19 +38,26 @@ router.get("/", async (req, res) => {
       conteoParticipante = [...conteoParticipante, agregarParticipante];
       bu = [...bu, agregarParticipante];
     }
-  }); 
+  });
   const premios = await Premio.find(
     {},
     { codigo: 1, premiouno: 1, premiodos: 1 }
   );
 
-  res.render("index", { 
+  res.render("index", {
     bu,
     premios,
-  }); 
-});
-
-router.post('/premio/:codigo')
-
-
-module.exports = router;
+  });  
+});     
+    
+router.post("/:codigo", (req, res) => {
+  const codigo = req.params.codigo; 
+  const cantidad = bu.length
+  const numeroAleatorio = Math.floor((Math.random() * cantidad ))
+  console.log(bu[numeroAleatorio])
+  //const ganador = bu[numeroAleatorio]  
+  res.render('index',bu,)   
+});            
+       
+module.exports = router;  
+   

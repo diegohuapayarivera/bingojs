@@ -46,7 +46,7 @@ app.use((req, res, next) => {
   res.locals.warning_msg = req.flash("warning_msg");
   res.locals.error_msg = req.flash("error_msg");
   next();
-});
+}); 
 
 //Rutas
 app.use(require("./routes/index"));

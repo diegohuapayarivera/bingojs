@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const Participante = require("../models/Participante");
 const obtenerId = require("../helper/obtenerId");
+const Premio = require("../models/Premio");
 
 router.get("/participante", (req, res) => {
   res.render("participante/participante");
@@ -47,10 +48,34 @@ router.post("/participante/add", async (req, res) => {
       });
       await newParticipante.save();
     }
-    //obtenerId(n, grupo); 
+    //obtenerId(n, grupo);
     req.flash("success_msg", `Se registro ${nombre}`);
     res.redirect("/participante");
   }
 });
 
+router.get("/sorteo", async (req, res) => {
+  const premios = await Premio.find(
+    {},
+    { codigo: 1, premiouno: 1, premiodos: 1 }
+  );
+  res.render("sorteo", { premios });
+});
+
+router.post("/sorteo/:codigo", async (req, res) => {
+  const numeroAleatorio = Math.floor(Math.random() * (1250 - 1400)) + 1400;
+  const ganador = await Participante.findOne({ codigo: numeroAleatorio });
+  console.log(ganador);
+  const codigo = req.params.codigo;
+  console.log(codigo);
+  const publicar = {
+    nombre: ganador.nombre,
+    numerorifa: ganador.codigo,
+    codigo: codigo,
+  };
+  const premios = await Premio.find({ codigo: codigo });
+  console.log(premios);
+  res.render("ganador", { publicar, premios });
+});
+  
 module.exports = router;

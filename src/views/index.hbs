@@ -1,19 +1,28 @@
 <div class="row">
   <div class="col-4">
     <h2>Participantes</h2>
-    <div class="card" style="width: 18rem;">
-      <ul class="list-group list-group-flush">
-        {{#each bu}}
-          <li class="list-group-item shadow m-1 bg-body rounded">
-            <div class="d-inline p-2 bg-primary text-white">
-              {{nombre}}
-            </div>
-            <strong>
-              x{{cantidad}}
-            </strong>
-          </li>
-        {{/each}}
-
+    <div class="card">
+      <ul class="list-group">
+        
+          {{#each bu}}
+            <a
+              href="#"
+              class="list-group-item list-group-item-success lh-tight"
+            >
+              <div
+                class="d-flex w-100 align-items-center justify-content-between"
+              >
+                <strong
+                  class="mb-1"
+                  _msthash="1450098"
+                  _msttexthash="1223326"
+                >{{nombre}}</strong>
+                <span
+                  class="badge bg-light text-dark rounded-pill"
+                >{{cantidad}}</span>
+              </div>
+            </a>
+          {{/each}}
       </ul>
     </div>
   </div>
@@ -21,22 +30,23 @@
     <h2 class="text-center">Premios</h2>
 
     <div class="row row-cols-3">
-
       {{#each premios}}
-        <div class="col">
-          <div class="card">
-            <div class="card-header">
-              {{codigo}}º Premio
-            </div>
-            <div class="card-body">
-              <ul>
-                <li>{{premiouno}}</li>
-                <li>{{premiodos}}</li>
-              </ul>
-              <a href="/premio/{{codigo}}" class="btn btn-primary">Sortear</a>
+        
+          <div class="col">
+            <div class="card">
+              <div class="card-header">
+                {{codigo}}º Premio
+              </div>
+              <div class="card-body">
+                <ul>
+                  <li>{{premiouno}}</li>
+                  <li>{{premiodos}}</li>
+                </ul>
+                <a href="/sorteo" class="btn btn-primary w-100">Sortear</a>
+              </div>
             </div>
           </div>
-        </div>
+        
       {{/each}}
     </div>
   </div>
