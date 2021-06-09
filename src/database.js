@@ -1,18 +1,18 @@
 //Requerimos moogoose para conectarnos
 const mongoose = require("mongoose");
-(async () => {
+/*(async () => {
     try {  
       //Creamos una coneccion usando moogose y lo guardamos en una constante db
       //la url que enviamos lo obtuvimos de nuestro cluster en mongodb atlas
       //Tambien agregamos algunos parametros para la funcionalidad de mongo
       const db = await mongoose.connect(
         "mongodb+srv://diegohr:notepad1245@cluster0.a3scv.mongodb.net/retoJose?retryWrites=true&w=majority",
-        {
+        {  
           useNewUrlParser: true,  
           useUnifiedTopology: true,
           useFindAndModify: false,
           useCreateIndex: true,
-        } 
+        }   
       );  
       //Enviamos un mensaje por consola en caso funcione todo
       console.log("Mongodb is connected to", db.connection.host);
@@ -20,4 +20,17 @@ const mongoose = require("mongoose");
       //en caso de error obtenemos el mensaje y lo enviamos por consola
       console.error(error);
     } 
-  })();
+  })();*/
+try { 
+  //para conectar a mongo junto con parametros
+  mongoose.connect("mongodb://localhost/notes-db-app", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false, 
+    useCreateIndex: true,  
+  });
+  console.log("Mongodb is connected to");
+} catch {    
+  console.error(error); 
+}
+module.exports = mongoose;
